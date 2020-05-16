@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Service Qualification</title>
+<!-- ******************************************************** -->
+<script src="js/shared/jquery.js"></script>
+<script src="js/shared/bootstrap.js"></script>
+<script src="js/shared/angular.js"></script>
+<script src="js/shared/ui-bootstrap-tpls.min.js"></script>
+<script src= "js/shared/angular-min.js">"></script>
+<script src="js/shared/angular-ui-min.js"></script>
+<script src="js/shared/angular-route.js"></script>
+<script src="js/user/Properties.js"></script> 
+<script src="js/user/Application.js"></script>
+<script src="js/user/Controller.js"></script>
+
+
+
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/styling.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!-- Don't touch code before this line -->
+<body ng-app="Application" ng-controller="HomeController" ng-model="data">
+<video autoplay muted loop id="myVideo">
+  <source src="img/videoplayback_s01.mp4" type="video/mp4">
+</video>
+<nav class="navbar navbar-color"  role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#/home"><i class="fa fa-home" style="font-size:50px;color:white;">
+				</i><span class="headertext font-head" style="padding-left:10px">Service Qualification</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="nav-collapse">
+				<ul class="nav navbar-nav navbar-right"> 
+					<li id="login"><a href="#/loginpage"><span class="head">Login</span></a></li>
+					<li id="logout" class="font-head">
+					<span  class= "headertext">Welcome  {{data.username}} !!!! &nbsp; &nbsp;
+					<a href="#/loginpage"><span class="headertext"><i class="fa fa-unlock">
+					</i>  Logout</span></a></span></li>
+				</ul>
+			</div>
+		</div>
+</nav>
+	<div class="container-fluid">
+		<div class="text-center">
+			<div ng-view="myView">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

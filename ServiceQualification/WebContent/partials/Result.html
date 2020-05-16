@@ -1,0 +1,110 @@
+<div class="row textcolor" >
+       <div class="col-md-4">
+              <label  class="customer">Customer Name :{{customer.name}}</label>
+              <br>
+              <label class="customer">Location
+                     :{{customer.location}} </label>
+           <br>
+                     <label class="customer">Request Id : {{customer.requestId}}</label><br>
+       </div>
+</div>
+<ul class="nav nav-tabs producttabs" >
+    <li id = list-{{products.key}} class=" navbar-header " ng-repeat="products in product"><a id = {{products.key}} data-toggle=""
+    ng-style={color:successStyle} ng-click="fetchSA($event)">
+    {{products.value}}  </a></li>
+</ul>
+
+<div class="row textcolor">
+       <div class="col-md-2"></div>
+       <div class="col-md-8 bordering">
+              <h3>Product Details</h3>
+              <form class="form-horizontal">
+                     <div class="form-group">
+                           <label class="control-label col-md-4">Contract Term :</label>
+                           <div class="col-md-4">
+                                  <input type="text" class="form-control" value= {{contractTerm}} 
+                                  readonly="readonly" placeholder="Conctract Terms in Months">
+                           </div>
+                     </div>
+
+                     <div class="form-group">
+                           <label class="control-label col-md-4">Customer Required
+                                  Speed :</label>
+                           <div class="col-md-4">
+                                  <input type="text" class="form-control" value ="{{customerRequiredSpeed}} kbps" 
+                                  readonly="readonly">
+                           </div>
+                     </div>
+              </form>
+              <br />
+
+       </div>
+</div>
+
+<br/>
+
+<div class="row textcolor" id ="id_service">
+       <div class="col-md-2"></div>
+       <div class="col-md-8 bordering">
+              <h3>{{servicename}}</h3>
+              
+              <form class="form-horizontal" ng-submit="openFeasibility()">
+                    <div class="form-group" id="id_port_unique">
+                   		 <label class="control-label col-md-4">{{port}} Port Unique Identifier : </label>
+                   				 <div class="col-md-4">
+                   	 				<input class="form-control" type="number" required="required" min ="1" max="65535" 
+                   	 					placeholder="Port Number" ng-model="portIdentifier">
+                   	 			</div>
+                    </div>
+                   <div class="form-group" id="id_Access_type">
+                   	 	<label class="control-label col-md-4"> Access Type :</label>
+                   	 		<div class="col-md-4">
+                   	 			<input class="form-control" value={{accessType}} readonly="readonly" placeholder="Access Type">
+                   			</div>
+                    </div>
+                     <div class="form-group" ng-repeat="(key,value) in services">
+                           <label id =div-{{key}} class="control-label col-md-4">{{key}} :</label>
+                           <div class="col-md-4" >
+                                  <select  class="form-control" ng-model= $parent.properties[key] ng-change="onChange(this)"
+                                  required="required" id ={{key}} >
+                                  <option value="">--Select--</option>
+                                  <option ng-repeat=" items in services[key]|orderBy:cSort" ng-value="{{items}}">{{items}}</option>
+                                  </select>
+                           </div>
+                     </div>
+                     <div class="form-group">
+                      <input id= "idFeasiblity" type="submit" value="Check Feasibility" class="btn btn-warning">
+                    </div>
+              </form>
+              <br />
+              
+       </div>
+</div>
+<br />
+<br/>
+<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+ 			<div class="footer">
+      			 <a href="#/Products_details_page"><input type="submit" value="Back"
+              	class="btn btn-warning previous"></a> 
+              	<input id="idSave" type="button" value="Create" class="btn btn-success" ng-click="createCustomer()">
+              	<a href="#/newRequest"><input
+             	 type="submit" value="Home" class="btn btn-primary"></a>
+
+			</div>
+			<div class="invalid_login error">
+			            <span id="idMessage" ng-show="message!=null" class=" alert text-success bg-success  ">
+           				     {{message}}
+                        </span>
+	       </div>
+	       	<div class="invalid_login error">
+			            <span ng-show="messageError!=null" class="alert modal-box ">
+           				     {{messageError}}
+                        </span>
+			</div>
+	       
+		</div>
+</div>
+
+               

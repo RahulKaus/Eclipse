@@ -1,0 +1,71 @@
+<div class="row" ng-init="fetchPO()">
+
+	<div class="container-fluid">
+		<div class="row textcolor">
+			<div class="col-md-4">
+
+				<label class="customer">Customer Name :  {{customer.name}}</label>
+				<br> 
+				<label class="customer">Location :    {{customer.location}} </label>
+				<br> 
+				<label class="customer">Request Id :  {{customer.requestId}}</label><br>
+
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 bordering">
+
+				<form>
+					<div class="row textcolor">
+						<div class="col-md-6">
+							<div class="checkbox product" ng-repeat="(key,value) in productName" id=checkbox-{{$index}}>
+								<input type="checkbox"   ng-true-value=	{{key}} ng-false-value = false 
+									ng-model=" $parent.product[$index]" ng-change="checkProduct(this)" required="required">{{value}}
+							</div>
+
+						</div>
+						<div class="col-md-offset-2 col-md-4" ng-repeat="(key,value) in productName">
+							<div ng-show="$parent.product[$index]"
+								class="buttons" >
+								<input type="submit" value="Configure" class="btn btn-warning inline" 
+									id={{key}}  ng-click="open($event)">
+							</div>
+						</div>
+					</div>
+					
+				</form>
+				<br />
+			
+			</div>
+
+		</div>
+		<div class="col-md-2"></div>
+		<br/>
+		<br/>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+		
+				<div class="footer">
+
+						<a href="#/newRequest"><input type="submit" value="Back"
+							class="btn btn-warning previous"></a> 
+							
+						<a href="#/loginpage"><input
+							type="submit" value="Home" class="btn btn-primary"></a>
+							 
+						<a>	<button type="button" 
+							class="btn btn-warning next" ng-click="next()">Next</button></a>
+					</div>
+					<div class="invalid_login  error">
+								            <span ng-show="message!=null" class="alert modal-box ">
+					           				     {{message}}
+					                        </span>
+					</div>
+	</div>
+</div>
+<br />
+
+

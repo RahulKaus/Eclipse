@@ -1,0 +1,33 @@
+<div class="row textcolor" ng-init="deleteAllCookies()">
+	<div class="col-md-4"></div>
+	<div class="col-md-4 bordering">
+		<form  ng-submit="validate()"method="get">
+			<div class="form-group">
+				<label>User Name:</label>
+				<i class="fa fa-user"></i>
+				 <input type="text" ng-model="username" placeholder ="Username"
+					class="form-control" required="required" ng-blur="changeU()" ng-change="changeInput()">
+			</div>
+			<div class="form-group">
+				<label>Password:</label> 
+				<i class="fa fa-lock"></i> 
+				<input type="password" ng-model="password"  placeholder ="Password"
+					class="form-control" required="required" ng-change="changeInput()">
+			</div>
+			<div>
+				<button type="submit" value="Submit" class="btn blue" ng-click="validate($event)" 
+					>Login</button>
+			</div>
+			
+		</form>
+		
+	</div>
+	
+</div>
+
+	<div class="invalid_login error">
+			            <span ng-show="message!=null" class="alert modal-box ">
+           				     {{message}}
+                        </span>
+			</div>
+	

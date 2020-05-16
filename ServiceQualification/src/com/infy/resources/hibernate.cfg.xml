@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <!-- hibernate dialect -->
+  <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+  <property name="hibernate.connection.url">jdbc:oracle:thin:@10.123.79.59:1521:georli04</property>
+  <property name="hibernate.connection.username">T794709</property>
+  <property name="hibernate.connection.password">T794709</property>
+  <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+  <!-- Automatic schema creation (begin) === -->
+  <property name="hibernate.hbm2ddl.auto">none</property>
+  <!-- Simple memory-only cache -->
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+  <!-- Enable Hibernate's automatic session context management -->
+  <property name="current_session_context_class">thread</property>
+  <!-- mapping resource="presentationtier/Person.hbm.xml"/
+ mapping class="presentationtier.Employee"></mapping-->
+  <mapping class="com.infy.entity.CustomerEntity"/>
+  <mapping class="com.infy.entity.ProductOfferingEntity"/>
+  <mapping class="com.infy.entity.ProductSpecificationEntity"/>
+  <mapping class="com.infy.entity.UsersEntity"/>
+  <mapping class="com.infy.entity.ProductAttributesValuesEntity"/>
+  <mapping class="com.infy.entity.ProductAttributesEntity"/>
+  <mapping class="com.infy.entity.ServiceAttributesEntity"/>
+  <mapping class="com.infy.entity.ServiceAttributesValuesEntity"/>
+  <mapping class="com.infy.entity.ServiceEntity"/>
+  <mapping class="com.infy.entity.ExchangeEntity"/>
+ </session-factory>
+</hibernate-configuration>
