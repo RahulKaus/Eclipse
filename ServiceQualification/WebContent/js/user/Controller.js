@@ -8,7 +8,7 @@ app.controller("LoginController",function($scope,$http,sharedProperties){
 	$scope.username = null
 	$scope.password =null
 	$scope.message = null
-// Share Username
+// Share Username of the user
 	$scope.changeU = function(){
 		
 		sharedProperties.setProperty($scope.username);
